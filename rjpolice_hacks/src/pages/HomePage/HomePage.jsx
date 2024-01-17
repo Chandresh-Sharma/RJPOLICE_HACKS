@@ -1,9 +1,10 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+import { AppBar, Toolbar, Typography, Button, Container } from '@material-ui/core';
+// import AppBar from '@material-ui/core/AppBar';
+// import Toolbar from '@material-ui/core/Toolbar';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import bgGif from './bg.gif'; // Import the image
 
@@ -44,33 +45,49 @@ const HomePage = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div>
       <AppBar position="static">
         <Toolbar>
-          {/* Your Navbar content goes here */}
-          <div>Navbar Content</div>
+          <Typography variant="h6">
+            Live Camera Hub
+          </Typography>
+          <Button color="inherit">Home</Button>
+          <Button color="inherit">Add camera</Button>
+          <Button color="inherit">Login</Button>
+          <Button color="inherit">Customer care</Button>
+          <Button color="inherit">Explore cameras</Button>
+          <Button color="inherit">Setting</Button>
         </Toolbar>
       </AppBar>
-      <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          component="img"
-          alt="GIF"
-          height="140"
-          image={bgGif}
-        />
-        <Button className={classes.button} variant="contained" color="primary">
-          Your Button
-        </Button>
-      </Card>
-      <div className={classes.imageContainer}>
-        {/* Replace these placeholder images with your actual image URLs */}
-        <img className={classes.image} src="image1.jpg" alt="Image 1" />
-        <img className={classes.image} src="image2.jpg" alt="Image 2" />
-        <img className={classes.image} src="image3.jpg" alt="Image 3" />
-      </div>
+
+      <Container>
+        <header>
+          <Typography variant="h3">Welcome to our Live Camera Hub</Typography>
+          <Typography variant="body1">Explore and monitor live camera feeds securely.</Typography>
+        </header>
+
+        <section>
+          <Typography variant="h4">Add Camera details</Typography>
+          <Button variant="contained" color="primary">Submit camera</Button>
+        </section>
+
+        <section>
+          <Typography variant="h4">Login</Typography>
+          <Button variant="contained" color="primary">Login</Button>
+        </section>
+
+        <section>
+          <Typography variant="h4">Customer care</Typography>
+          <Button variant="contained" color="primary">Call customer care</Button>
+        </section>
+      </Container>
+
+      <footer>
+        <Typography variant="body2">© 2024 Live Camera Hub. All rights reserved.</Typography>
+      </footer>
     </div>
   );
 };
 
 export default HomePage;
+
