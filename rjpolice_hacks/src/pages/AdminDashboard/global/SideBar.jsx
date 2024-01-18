@@ -7,6 +7,12 @@ import { tokens } from "../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import EngineeringIcon from '@mui/icons-material/Engineering';
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import ForumIcon from '@mui/icons-material/Forum';
+import SupportAgentIcon from '@mui/icons-material/SupportAgent';
+import img from "../images/Rajasthan_Police_Logo.png"
 
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -38,6 +44,12 @@ const SideBar = () => {
   return (
     <Box
       sx={{
+        // position: "fixed",  // Set the position to fixed
+        // top: 0,             // Position it at the top
+        // bottom: 0,          // Stretch it to the bottom
+        // overflowY: "auto",  // Allow vertical scrolling within the sidebar
+        // zIndex: 1000,       // Ensure it's above other elements
+        // width: isCollapsed ? "80px" : "250px",
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
         },
@@ -90,7 +102,7 @@ const SideBar = () => {
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../../assets/user.png`}
+                  src={img}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
@@ -101,10 +113,10 @@ const SideBar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Ed Roh
+                  Rajasthan Police
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
-                  VP Fancy Admin
+                  Super Admin
                 </Typography>
               </Box>
             </Box>
@@ -127,9 +139,58 @@ const SideBar = () => {
               Data
             </Typography>
             <Item
-              title="Manage Team"
+              title="Users"
               to="/admin/users"
               icon={<PeopleOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Models"
+              to="/admin/models"
+              icon={<EngineeringIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Camera Details"
+              to="/admin/users"
+              icon={<CameraAltIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Messages
+            </Typography>
+            <Item
+              title="Notification"
+              to="/admin/users"
+              icon={<NotificationsIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Old Messages"
+              to="/admin/users"
+              icon={<ForumIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Customer Care
+            </Typography>
+            <Item
+              title="Custoer Care"
+              to="/admin/users"
+              icon={<SupportAgentIcon />}
               selected={selected}
               setSelected={setSelected}
             />

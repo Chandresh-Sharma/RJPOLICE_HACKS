@@ -6,6 +6,7 @@ import TopBar from './global/TopBar';
 import SideBar from './global/SideBar';
 import DashBoard from "./DashBoard/index";
 import Users from './Users';
+import Models from "./Models";
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
                     <Routes>
                         <Route path='/' element={<DashBoard />} />
                         <Route path='/users' element={<Users />} />
+                        <Route path='/models' element={<Models />} />
                     </Routes>
                 </main>
             </div>

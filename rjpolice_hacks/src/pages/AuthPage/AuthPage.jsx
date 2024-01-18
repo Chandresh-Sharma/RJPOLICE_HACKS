@@ -3,15 +3,17 @@ import { Container, Paper, Typography, Link, Button, Grid } from '@material-ui/c
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Input from './Input';
+import { useNavigate } from 'react-router-dom';
 import useStyles from './styles';
 
-const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
+const initialState = { email: '', password: '' };
 
 const SignUp = () => {
   const [form, setForm] = useState(initialState);
   const [isSignup, setIsSignup] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const classes = useStyles();
+  const history = useNavigate(); // Initialize useHistory
 
   const handleShowPassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -25,11 +27,18 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Your form submission logic here
+
+    // Check if the entered username and password are "admin"
+    if (form.email.trim().toLowerCase() === 'admin@gmail.com' && form.password === 'admin') {
+      // Route to the admin page
+      history('/admin'); // Make sure you have the '/admin' route defined in your routes
+    } else {
+      // Route to the landing page
+      history('/landingpage'); // Replace with the actual landing page route
+    }
   };
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-
   return (
     <Container component="main" maxWidth="xs" className={classes.root}>
       <Paper className={classes.paper} elevation={6}>
